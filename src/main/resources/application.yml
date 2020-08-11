@@ -1,0 +1,20 @@
+demo:
+  service:
+    version: 1.0.0
+
+embedded:
+  zookeeper:
+    port: 2181
+spring:
+  application:
+    name: test
+dubbo:
+  application:
+    name: test
+  registry:
+    address: zookeeper://yxy.gold:${embedded.zookeeper.port}
+    file: ${user.home}/dubbo-cache/${spring.application.name}/dubbo.cache
+  protocol:
+    id: dsf
+    port: 8785
+    name: dubbo
